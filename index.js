@@ -1,8 +1,8 @@
 var express = require("express");
 var app = express();
-const Users = require('./Models/Users.js');
+const users = require('./Models/Users.js');
 
-app.use("/Users", Users);
+app.use("/Users.js", users);
 
 app.get ("/", function(req,res){
     res.send("Hello World");
