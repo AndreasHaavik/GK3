@@ -72,7 +72,7 @@ var image2 = new image("png", "342KB", "user2","User/SofiaDalgera/Photos/Myphoto
 var user1 = new user("Mikkel", "Andersen", "Male", "22", "Østerbro", "mikkel_a@mail.dk", image1)
 var creditcard = new creditcard("Mikkel Andersen", "1000 4304 2394 0900", "123", "10/22")
 var mikkel = new paymentuser(user1, interest_mikkel, creditcard) 
-var interst_mikkel = new interest(mikkel, "Football, handball, fashion, computer")
+var interest_mikkel = new interest(mikkel, "Football, handball, fashion, computer")
 
 var user2 = new user("Sofia", "dalgera", "female", "21", "vesterbro", "SofiaDalgera@gmail.com", image2)
 var sofia = new freeuser(user2, interest_sofia,) 
