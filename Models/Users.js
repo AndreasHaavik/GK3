@@ -49,6 +49,7 @@ class match extends user{
     }
 }
 
+// vi har lavet en class image class som ikke extender til vores user, da vi skriver image ind vores objekt under vores user class
 class image {
     constructor(imageType, imageSize, author, path,){
         this.imageType = imageType;
