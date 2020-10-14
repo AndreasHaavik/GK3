@@ -9,14 +9,14 @@ class user {
         }
 }
 
-class paymentUser extends User{
+class paymentUser extends user{
     constructor(user, creditinfo){
         super(user.firstName, user.lastName, user.gender, user.age, user.addresse, user.eMail)
         this.creditinfo = creditinfo;
     }
 }
 
-class freeuser extends User {
+class freeuser extends user {
     constructor(user, trialperiode){
         super(user.firstName, user.lastName, user.gender, user.age, user.addresse, user.eMail)
         this.trialperiode = trialperiode;
@@ -75,6 +75,6 @@ var mikkel = new paymentuser(user1, interest_mikkel, creditcard)
 var interst_mikkel = new interest(mikkel, "Football, handball, fashion, computer")
 
 var user2 = new user("Sofia", "dalgera", "female", "21", "vesterbro", "SofiaDalgera@gmail.com", image2)
-var sofia = new freeuser(user2, interest_sofia) 
+var sofia = new freeuser(user2, interest_sofia,) 
 var interest_sofia = new interest("sofia", "fashion", "squats and training", "make-up")
 
