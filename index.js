@@ -27,21 +27,18 @@ var i = 1;
 
 var express = require("express");
 var app = express();
-const user = require('./Models/Users.js');         //tager vi fat i user.js filen
-const interest = require('./Models/Users.js');
-const match = require('./Models/Users.js');
+const user = require('./Controllers/Users.js');         //tager vi fat i user.js filen
+const interest = require('./Controllers/Interest.js');
+const match = require('./Controllers/Match.js');
 const PORT = 3000;
 
 
-app.use("/Users", user);                //når der skrives /Usurs henvises til users i browseren. 
-app.use("/Interest", interest);
-app.use("/Match", match);
+app.get("/Users", user);                //når der skrives /Usurs henvises til users i browseren. 
+//app.get("/Interest", interest);
+//app.get("/Match", match);
 
 
-app.get("/",function(req,res){
-    res.send("HELLO WORLD" + i++);
 
-})
 
 app.listen(PORT, function(){
 

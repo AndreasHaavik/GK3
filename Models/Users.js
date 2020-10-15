@@ -9,7 +9,7 @@ class user {
         }
 }
 
-class paymentUser extends user{
+class paymentuser extends user{
     constructor(user, creditinfo){
         super(user.firstName, user.lastName, user.gender, user.age, user.addresse, user.eMail)
         this.creditinfo = creditinfo;
@@ -25,8 +25,9 @@ class freeuser extends user {
 }
 
 // jeg har undladet at sætte min user i min constructor, da alle skal have mulighed for at vedhæfte sit creditkort, hvis det nu skulle være en anden person som betalte for vores ydelse. 
-class creditcard extends paymentuser extends user{
-constructor(cardHolder, cardNumber, CVVCode, experationDate){
+class creditcard extends paymentuser {
+constructor(paymentuser, cardHolder, cardNumber, CVVCode, experationDate){
+    super(paymentuser, paymentuser.creditinfo)
     this.cardHolder = cardHolder;
     this.cardNumber = cardNumber;
     this.CVVCode = CVVCode;
@@ -37,7 +38,6 @@ constructor(cardHolder, cardNumber, CVVCode, experationDate){
 class interest extends user{
     constructor(user, interest){
         super(user.firstName, user.lastName, user.gender, user.age, user.addresse, user.eMail)
-        this.interest = interest;
         this.interest = interest;
     }  
 }
@@ -70,11 +70,24 @@ var image1 = new image("png", "450MG", "user1", "User/MikkelAndersen/Photos/Myph
 var image2 = new image("png", "342KB", "user2","User/SofiaDalgera/Photos/Myphoto")
 
 var user1 = new user("Mikkel", "Andersen", "Male", "22", "Østerbro", "mikkel_a@mail.dk", image1)
-var creditcard = new creditcard("Mikkel Andersen", "1000 4304 2394 0900", "123", "10/22")
+var credit = new creditcard("Mikkel Andersen", "1000 4304 2394 0900", "123", "10/22")
 var mikkel = new paymentuser(user1, interest_mikkel, creditcard) 
-var interest_mikkel = new interest(mikkel, "Football, handball, fashion, computer")
+var interest_mikkel = new interest(user1,"Fodbold")
 
 var user2 = new user("Sofia", "dalgera", "female", "21", "vesterbro", "SofiaDalgera@gmail.com", image2)
-var sofia = new freeuser(user2, interest_sofia,) 
-var interest_sofia = new interest("sofia", "fashion", "squats and training", "make-up")
+
+var interest1 = new interest(user2, "Golf")
+var interest2 = new interest(user2, "Gym")
+
+var sofia = new freeuser(user2, interest2) 
+
+console.log(interest1.interest)
+
+var userArray =[];
+userArray = [user1, user2];
+
+var interestArray = []
+interestArray = [interest_mikkel]
+
+module.exports = interestArray;
 
