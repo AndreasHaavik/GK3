@@ -37,15 +37,15 @@ constructor(paymentuser, cardHolder, cardNumber, CVVCode, experationDate){
 
 class interest extends user{
     constructor(user, interest){
-        super(user.firstName, user.lastName, user.gender, user.age, user.addresse, user.eMail)
-        this.interest = interest;
+        super(user)
+        user.interest = interest;
     }  
 }
 
 class match extends user{
-    constructor(user, match){
-        super(user.firstName, user.lastName, user.gender, user.age, user.addresse, user.eMail)
-        this.match = match;
+    constructor(match1, match2){
+        this.match1 = match1;
+        this.match2 = match2;
     }
 }
 
@@ -76,18 +76,26 @@ var interest_mikkel = new interest(user1,"Fodbold")
 
 var user2 = new user("Sofia", "dalgera", "female", "21", "vesterbro", "SofiaDalgera@gmail.com", image2)
 
-var interest1 = new interest(user2, "Golf")
-var interest2 = new interest(user2, "Gym")
+new interest(user2,"Golf, Fitness, Fashion, Cars, Food")
+new interest(user1,"Fashion, Make-up, Music, Arcitecture")
 
-var sofia = new freeuser(user2, interest2) 
+ 
 
-console.log(interest1.interest)
+console.log(user1.firstName)
 
-var userArray =[];
+var testmatch1 = new match(user1.firstName, user2.firstName)
+var testmatch2 = new match("Mikkel", "Sofia")
+
+var userArray = [];
 userArray = [user1, user2];
 
-var interestArray = []
-interestArray = [interest_mikkel]
+var interestArray = [];
+intersestArray = [user1.interest, user2.interest];
 
-module.exports = interestArray;
+var matchArray = [];
+matchArray = [testmatch1,testmatch2];
+
+
+
+module.exports = {userArray,interestArray,matchArray};
 
