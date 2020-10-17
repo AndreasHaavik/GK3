@@ -18,7 +18,7 @@ class paymentuser extends user{
 
 class freeuser extends user {
     constructor(user, trialperiode){
-        super(user.firstName, user.lastName, user.gender, user.age, user.addresse, user.eMail)
+        super(user)
         this.trialperiode = trialperiode;
 
     } 
@@ -27,7 +27,7 @@ class freeuser extends user {
 // jeg har undladet at sætte min user i min constructor, da alle skal have mulighed for at vedhæfte sit creditkort, hvis det nu skulle være en anden person som betalte for vores ydelse. 
 class creditcard extends paymentuser {
 constructor(paymentuser, cardHolder, cardNumber, CVVCode, experationDate){
-    super(paymentuser, paymentuser.creditinfo)
+    super(paymentuser)
     this.cardHolder = cardHolder;
     this.cardNumber = cardNumber;
     this.CVVCode = CVVCode;
@@ -43,7 +43,8 @@ class interest extends user{
 }
 
 class match extends user{
-    constructor(match1, match2){
+    constructor(user, match1, match2){
+        super(user)
         this.match1 = match1;
         this.match2 = match2;
     }
@@ -76,8 +77,8 @@ var interest_mikkel = new interest(user1,"Fodbold")
 
 var user2 = new user("Sofia", "dalgera", "female", "21", "vesterbro", "SofiaDalgera@gmail.com", image2)
 
-new interest(user2,"Golf, Fitness, Fashion, Cars, Food")
-new interest(user1,"Fashion, Make-up, Music, Arcitecture")
+new interest(user1,"Golf, Fitness, Fashion, Cars, Food")
+new interest(user2,"Fashion, Make-up, Music, Arcitecture")
 
  
 
@@ -90,7 +91,11 @@ var userArray = [];
 userArray = [user1, user2];
 
 var interestArray = [];
-intersestArray = [user1.interest, user2.interest];
+interestArray = [user1.interest, user2.interest];
+
+console.log(user1.interest)
+
+console.log(user2.interest)
 
 var matchArray = [];
 matchArray = [testmatch1,testmatch2];
